@@ -12,5 +12,6 @@ class UserModel extends Model
     protected $table = 'm_user'; // Sesuaikan dengan nama tabel di database
     protected $primaryKey = 'user_id'; // Primary key yang benar
     
-    protected $fillable = ['level_id', 'username', 'name'];
+    protected $fillable = ['username', 'name', 'password', 'level_id'];
+
 }
