@@ -16,8 +16,9 @@ class LevelModel extends Model
     /**
      * Relasi ke UserModel (satu level bisa memiliki banyak user).
      */
-    public function users()
+    public function users(): HasMany
     {
-        return $this->hasMany(UserModel::class, 'level_id');
+        return $this->hasMany(UserModel::class, 'level_id', 'level_id'); 
+        // level_id ada di tabel users sebagai foreign key
     }
 }

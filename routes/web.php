@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\SupplierController;
 
 
 /*
@@ -66,6 +67,19 @@ Route::group(['prefix' => 'kategori'], function () {
     Route::put('/{id}', [KategoriController::class, 'update']);
     Route::delete('/{id}', [KategoriController::class, 'destroy']);
 });
+
+
+Route::group(['prefix' => 'supplier'], function () {
+    Route::get('/', [SupplierController::class, 'index']);        // menampilkan halaman awal supplier
+    Route::post('/list', [SupplierController::class, 'list']);    // menampilkan data supplier dalam bentuk json untuk datatables
+    Route::get('/create', [SupplierController::class, 'create']); // menampilkan halaman form tambah supplier
+    Route::post('/', [SupplierController::class, 'store']);       // menyimpan data supplier baru
+    Route::get('/{id}', [SupplierController::class, 'show']);     // menampilkan detail supplier
+    Route::get('/{id}/edit', [SupplierController::class, 'edit']);// menampilkan halaman form edit supplier
+    Route::put('/{id}', [SupplierController::class, 'update']);   // menyimpan perubahan data supplier
+    Route::delete('/{id}', [SupplierController::class, 'destroy']);// menghapus data supplier
+});
+
 
 Route::group(['prefix' => 'barang'], function () {
     Route::get('/', [BarangController::class, 'index']);
